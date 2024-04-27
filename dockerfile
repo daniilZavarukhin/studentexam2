@@ -1,4 +1,4 @@
-FROM python:3.9
+on:3.9
 
 COPY . /code
 
