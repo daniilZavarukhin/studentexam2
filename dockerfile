@@ -1,8 +1,4 @@
-on:3.9
-
-COPY . /code
-
-WORKDIR /code
+ode
 
 RUN pip install --no-cache-dir -e .
 
