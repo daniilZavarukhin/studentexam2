@@ -22,7 +22,28 @@ pipeline {
 		coverage run -m pytest
 		coverage report
                 '''
-		echo '-------------------- sex sex sex ------------------'
+		echo '------------------------- sex sex -------------------------'
+            }
+        }
+	stage('Docker build') {
+            steps {
+                echo '-------------------- build build build ------------------'
+                sh '''
+                docker build -t daniilzav/epamexam:web .
+		'''
+                echo '----------------------------- sex sex sex ---------------------------'
+            }
+        }
+	stage('Docker push') {
+            steps {
+                echo '-------------------- push push push ------------------'
+		withCredentials([string(credentialsId: 'dockerTOK', variable: 'dockerTOK')]) {
+		sh '''
+		docker login -u daniilzav -p ${dockerTOK}
+                docker push daniilzav/epamexam:web
+                '''
+		}                
+                echo '----------------------------- sex sex sex sex ---------------------------'
             }
         }
     }
