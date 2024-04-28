@@ -15,13 +15,14 @@ pipeline {
         }
 	stage('Do test') {
             steps {
-                echo '------------- test test test ------------------'
+                echo '-------------------- test test test ------------------'
                 sh '''
+		. venv/bin/activate
                 pip install -e '.[test]'
 		coverage run -m pytest
 		coverage report
                 '''
-		echo '------------- sex sex sex ------------------'
+		echo '-------------------- sex sex sex ------------------'
             }
         }
     }
