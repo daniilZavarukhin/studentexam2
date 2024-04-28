@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Install paskages') {
+        stage('Install packages') {
             steps {
                 echo 'get start get start get start'
                 sh '''
